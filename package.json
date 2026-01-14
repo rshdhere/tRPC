@@ -1,0 +1,16 @@
+{
+  "name": "trpc",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@trpc/client": "^11.8.1",
+    "@trpc/server": "^11.8.1"
+  }
+}
