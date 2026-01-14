@@ -28,6 +28,8 @@ createTodo: publicProcedure
 signup: publicProcedure
     .input(signupInputType)
     .mutation(async (opts) => {
+        //context
+
         let username = opts.input.username;
         let password = opts.input.password;
 
@@ -38,6 +40,13 @@ signup: publicProcedure
 
 const server = createHTTPServer({
     router: appRouter,
+    createContext(opts){
+        let authHeader = opts.req.headers["authorization"]
+        //jwt.verify
+        return {
+            username: "random"
+        }
+    }
 });
 
 server.listen(3000);
