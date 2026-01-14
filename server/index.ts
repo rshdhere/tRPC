@@ -7,18 +7,31 @@ const todoInputType = z.object({
     description: z.string()
 })
 
+const signupInputType = z.object({
+    username: z.string(),
+    password: z.string()
+})
+
 const appRouter = router({
-  createTodo: publicProcedure
+createTodo: publicProcedure
     .input(todoInputType)
     .mutation(async (opts) => {
-        const title = opts.input.title;
-        const description = opts.input.description;
+        let title = opts.input.title;
+        let description = opts.input.description;
 
         // db stuff goes in here hehe
 
         return {
             id: "1"
         }
+    }),
+signup: publicProcedure
+    .input(signupInputType)
+    .mutation(async (opts) => {
+        let username = opts.input.username;
+        let password = opts.input.password;
+
+        // db stuff goes in here
     })
 });
 
